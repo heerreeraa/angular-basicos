@@ -1,0 +1,27 @@
+<h1>Listado de Héroes</h1>
+
+<!-- Directiva *ngIf() crea una condición if sin tener que hacerla en el 'ts'-->
+<!-- Se puede acompañar del termino 'else' para la acción del contrario de la condición -->
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h3>Héroe borrado:  <small>{{ heroeBorrado }}</small></h3>
+</div>
+
+<!-- Directiva 'ng-template' nuestra una 'template' acorde con una condición -->
+<!-- A través de una referencia local comenzada SIEMPRE con un # -->
+<ng-template #noBorrado>
+    <h3>No ha borrrado nada!</h3>
+</ng-template>
+
+<button (click)="borrarHeroe()">
+    Borrar Héroe
+</button>
+
+<ul>
+    <!-- Directiva *ngFor -->
+    <!-- Guarda cada elemento del array Heroes en una variable -->
+    <li *ngFor="let heroe of heroes; let i = index">  
+        {{ i + 1 }} {{ heroe }}
+    </li>  
+</ul>
+
+
